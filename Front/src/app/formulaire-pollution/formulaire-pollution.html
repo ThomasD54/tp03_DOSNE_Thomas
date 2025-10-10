@@ -1,0 +1,92 @@
+<!---->
+<!-- Création du formulaire de déclaration d'une pollution -->
+<!---->
+
+<div>
+    <div class="bloc-de-marge"></div>
+    <h2 class="titre-formulaire">Formulaire de déclaration d'une nouvelle pollution</h2>
+</div>
+
+<form [formGroup]="formulaireGroup" (ngSubmit)="onSubmit()" class="cssFormulaire">
+    
+    <div class="bloc-du-formulaire">
+        <label>Titre de votre déclaration</label>
+        <input type="text" formControlName="titrePollution" [class.is-invalid]="formulaireGroup.controls.titrePollution.invalid">
+        <small class="text-champ-invalide" *ngIf="formulaireGroup.controls.titrePollution.invalid">
+            <ng-container *ngIf="formulaireGroup.controls.titrePollution.hasError('required')">
+                <p>Le titre est obligatoire</p>
+            </ng-container>
+        </small>
+    </div>
+    
+    <div class="bloc-du-formulaire">
+    <label>Type de votre déclaration</label>
+    <select formControlName="typePollution" [class.is-invalid]="formulaireGroup.controls.typePollution.invalid">
+        <option *ngFor="let type of typeDePollutions" [value]="type">{{ type }}</option>
+    </select>
+    <small class="text-champ-invalide" *ngIf="formulaireGroup.controls.typePollution.invalid">
+        <ng-container *ngIf="formulaireGroup.controls.typePollution.hasError('required')">
+            <p>Le type est obligatoire</p>
+        </ng-container>
+    </small>
+    </div>
+
+    <div class="bloc-du-formulaire">
+        <label>Description</label>
+        <textarea formControlName="descriptionPollution" [class.is-invalid]="formulaireGroup.controls.descriptionPollution.invalid"></textarea>
+        <small class="text-champ-invalide" *ngIf="formulaireGroup.controls.descriptionPollution.invalid">
+            <ng-container *ngIf="formulaireGroup.controls.descriptionPollution.hasError('required')">
+                <p>La description est obligatoire</p>
+            </ng-container>
+        </small>
+    </div>
+
+    <div class="bloc-du-formulaire">
+        <label>Date de l'observation</label>
+        <input type="date" formControlName="datePollution" [class.is-invalid]="formulaireGroup.controls.datePollution.invalid">
+        <small class="text-champ-invalide" *ngIf="formulaireGroup.controls.datePollution.invalid">
+            <ng-container *ngIf="formulaireGroup.controls.datePollution.hasError('required')">
+                <p>La date est obligatoire</p>
+            </ng-container>
+        </small>
+    </div>
+
+    <div class="bloc-du-formulaire">
+        <label>Lieu</label>
+        <input type="text" formControlName="lieuPollution" [class.is-invalid]="formulaireGroup.controls.lieuPollution.invalid">
+        <small class="text-champ-invalide" *ngIf="formulaireGroup.controls.lieuPollution.invalid">
+            <ng-container *ngIf="formulaireGroup.controls.lieuPollution.hasError('required')">
+                <p>Le lieu est obligatoire</p>
+            </ng-container>
+        </small>
+    </div>
+
+    <div class="bloc-du-formulaire">
+    <label>Latitude</label>
+    <input type="number" formControlName="latitudePollution" [class.is-invalid]="formulaireGroup.controls.latitudePollution.invalid">
+    <small class="text-champ-invalide" *ngIf="formulaireGroup.controls.latitudePollution.invalid">
+        <ng-container *ngIf="formulaireGroup.controls.latitudePollution.hasError('required')">
+            <p>La latitude est obligatoire</p>
+        </ng-container>
+    </small>
+    </div>
+
+    <div class="bloc-du-formulaire">
+        <label>Longitude</label>
+        <input type="number" formControlName="longitudePollution" [class.is-invalid]="formulaireGroup.controls.longitudePollution.invalid">
+        <small class="text-champ-invalide" *ngIf="formulaireGroup.controls.longitudePollution.invalid">
+            <ng-container *ngIf="formulaireGroup.controls.longitudePollution.hasError('required')">
+                <p>La longitude est obligatoire</p>
+            </ng-container>
+        </small>
+    </div>
+
+    <div class="bloc-du-formulaire">
+        <label>Photo</label>
+        <input type="text" formControlName="photoPollution">
+    </div>
+
+  
+    <button type="submit" [disabled]="formulaireGroup.invalid">Valider</button>
+
+</form>

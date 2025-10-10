@@ -1,0 +1,9 @@
+<app-formulaire-pollution 
+    *ngIf="!formulaireSoumis"
+    (recapitulatif)="recevoirSaisisUtilisateurFormulaire($event)">
+</app-formulaire-pollution>
+
+<app-recapitulatif-formulaire-pollution 
+    *ngIf="formulaireSoumis"
+    [saisisUtilisateurFormulaire]="recevoirPollution">
+</app-recapitulatif-formulaire-pollution>

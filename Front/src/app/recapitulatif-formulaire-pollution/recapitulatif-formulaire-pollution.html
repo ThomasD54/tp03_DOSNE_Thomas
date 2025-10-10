@@ -1,0 +1,15 @@
+<!--
+Div pour afficher les différentes saisis de l'utilisateur
+-->
+
+<div *ngIf="saisisUtilisateurFormulaire" class="css-recapitulatif">
+    <h2 class="css-titre-recap">Récapitulatif de votre déclaration de pollution</h2>
+    <p><strong class="css-element-recap">Titre de votre déclaration :</strong> {{ saisisUtilisateurFormulaire.titrePollution }}</p>
+    <p><strong class="css-element-recap">Type de votre déclaration :</strong> {{ saisisUtilisateurFormulaire.typePollution }}</p>
+    <p><strong class="css-element-recap">Description :</strong> {{ saisisUtilisateurFormulaire.descriptionPollution }}</p>
+    <p><strong class="css-element-recap">Date :</strong> {{ saisisUtilisateurFormulaire.datePollution }}</p>
+    <p><strong class="css-element-recap">Lieu :</strong> {{ saisisUtilisateurFormulaire.lieuPollution }}</p>
+    <p><strong class="css-element-recap">Latitude :</strong> {{ saisisUtilisateurFormulaire.latitudePollution }}</p>
+    <p><strong class="css-element-recap">Longitude :</strong> {{ saisisUtilisateurFormulaire.longitudePollution }}</p>
+    <p><strong class="css-element-recap">Photo :</strong> {{ saisisUtilisateurFormulaire.photoPollution }}</p>
+</div>
