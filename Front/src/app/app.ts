@@ -1,32 +1,71 @@
-import { Component, signal } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-import { FormulairePollution } from "./formulaire-pollution/formulaire-pollution";
-import { RecapitulatifFormulairePollution } from './recapitulatif-formulaire-pollution/recapitulatif-formulaire-pollution';
+import { Component } from '@angular/core';
+import { Pollution, ServicePollution } from './services/pollution';
+import { FormulairePollution } from './formulaire-pollution/formulaire-pollution';
 import { CommonModule } from '@angular/common';
-
 
 @Component({
   selector: 'app-root',
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    FormulairePollution
-    //RecapitulatifFormulairePollution
-    ,
-    RecapitulatifFormulairePollution
-],
+  standalone: true,
+  imports: [CommonModule, FormulairePollution],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
+  afficherFormulaire = false;
+  pollutionEnCours?: Pollution;
+  pollutions: Pollution[] = [];
+  pollutionEnConsultation?: Pollution;
+  afficherPopup = false;
 
-  recevoirPollution: any = null;
-  formulaireSoumis: boolean = false;
+  constructor(private pollutionService: ServicePollution) {}
 
-  recevoirSaisisUtilisateurFormulaire(data: any) {
-    this.recevoirPollution = data;
-    this.formulaireSoumis = true;
+  ngOnInit(): void {
+    this.chargerPollutions();
   }
-  
+
+  allerAccueil() {
+    this.afficherFormulaire = false;
+  }
+
+  nouvellePollution() {
+    this.pollutionEnCours = undefined; // formulaire vide
+    this.afficherFormulaire = true;
+  }
+
+  modifierPollution(p: Pollution) {
+    this.pollutionEnCours = { ...p }; // copie pour ne pas modifier directement
+    this.afficherFormulaire = true;
+  }
+
+  gestionPollutionAjoutee() {
+    this.chargerPollutions();
+    this.afficherFormulaire = false;
+  }
+
+  chargerPollutions() {
+    this.pollutionService.recuperationToutePollution().subscribe(data => {
+      this.pollutions = data;
+    });
+  }
+
+  supprimerPollution(id: number) {
+    if (confirm('Supprimer la pollution ?')) {
+      this.pollutionService.suppressionPollution(id).subscribe(() => {
+        this.pollutions = this.pollutions.filter(p => p.id !== id);
+      });
+    }
+  }
+
+  consulterPollution(id: number) {
+    this.pollutionService.recuperationPollution(id).subscribe((p) => {
+      this.pollutionEnConsultation = p;
+      // afficher le pop up pour la visualisation de la pollution
+      this.afficherPopup = true;
+    });
+  }
+
+  fermerPopup() {
+    this.afficherPopup = false;
+    this.pollutionEnConsultation = undefined;
+  }
 }

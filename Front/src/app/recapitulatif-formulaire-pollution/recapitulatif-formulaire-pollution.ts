@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { Pollution } from '../services/pollution';
 
 @Component({
   selector: 'app-recapitulatif-formulaire-pollution',
@@ -7,11 +8,11 @@ import { Component, Input } from '@angular/core';
     CommonModule,
   ],
   templateUrl: './recapitulatif-formulaire-pollution.html',
-  styleUrl: './recapitulatif-formulaire-pollution.css',
+  styleUrls: ['./recapitulatif-formulaire-pollution.css'],
   standalone: true
 })
 export class RecapitulatifFormulairePollution {
   // Récéption des donnée émise par le compostant parent
-  @Input() saisisUtilisateurFormulaire: any;
+  @Input() pollution?: Pollution;
 
 }

@@ -93,3 +93,18 @@
 .cssFormulaire button:hover {
     background-color: #7dd885;
 }
+
+.photo-pollution {
+  width: 100%;       /* prend toute la largeur du formulaire ou du bloc parent */
+  height: auto;      /* conserve les proportions */
+  max-height: 300px; /* facultatif, limite la hauteur pour ne pas déformer le formulaire */
+  display: block;
+  margin-top: 5px;
+  border-radius: 6px;
+  object-fit: cover; /* ajuste l'image pour remplir le bloc sans déformation */
+}
+
+.preview-photo p {
+  margin: 5px 0;
+  font-weight: bold;
+}
