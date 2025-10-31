@@ -23,14 +23,14 @@ export interface Pollution
 export class ServicePollution 
 {
   // URL du backend mocké (simuler)
-  private apiUrl = 'http://localhost:3000/pollution_de_base';
+  private apiUrl = 'https://apitemplate-latest-uhyg.onrender.com';
 
   constructor(private http: HttpClient) {}
 
   // Recuperation de toutes les pollutions
   recuperationToutePollution(): Observable<Pollution[]> 
   {
-    return this.http.get<Pollution[]>(this.apiUrl);
+    return this.http.get<Pollution[]>(this.apiUrl + "/api/pollution");
   }
 
   // Recuperation d'une pollution specifique
@@ -56,21 +56,6 @@ export class ServicePollution
   {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

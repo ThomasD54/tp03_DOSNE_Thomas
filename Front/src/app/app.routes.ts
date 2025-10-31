@@ -5,6 +5,6 @@ import { FormulairePollution } from './formulaire-pollution/formulaire-pollution
 
 export const routes: Routes = [
   { path: '', component: Accueil },
-  { path: 'ajouter', component: FormulairePollution },
+  { path: 'formulaire', component: FormulairePollution },
   { path: '**', redirectTo: '' }
 ];
