@@ -122,12 +122,12 @@
   margin-top: 1rem;
 }
 
-.photo-liste-container {
+.photo_url-liste-container {
   margin: 0.5rem 0;
   text-align: center;       /* centre l'image */
 }
 
-.photo-liste {
+.photo_url-liste {
   max-width: 100%;          /* l'image ne dépasse jamais la largeur du parent */
   max-height: 200px;        /* limite la hauteur pour les grandes images */
   width: auto;              /* garde les proportions */
@@ -137,12 +137,12 @@
   display: inline-block;    /* pour que text-align: center fonctionne */
 }
 
-.popup-photo-container {
+.popup-photo_url-container {
   margin: 1rem 0;
   text-align: center;       /* centre l'image dans le popup */
 }
 
-.popup-photo {
+.popup-photo_url {
   max-width: 100%;
   max-height: 400px;      /* limite la hauteur de l'image */
   height: auto;

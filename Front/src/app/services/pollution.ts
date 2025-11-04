@@ -6,14 +6,14 @@ export interface Pollution
 {
   // L'ID sera géré automatiquement par json-server
   id?: number,
-  titrePollution: string;
-  typePollution: string;
-  descriptionPollution: string;
-  datePollution: string;
-  lieuPollution: string;
-  latitudePollution: number;
-  longitudePollution: number;
-  photo?: string;
+  titre: string;
+  type_pollution: string;
+  description: string;
+  date_observation: string;
+  lieu: string;
+  latitude: number;
+  longitude: number;
+  photo_url?: string;
 }
 
 
@@ -36,7 +36,8 @@ export class ServicePollution
   // Recuperation d'une pollution specifique
   recuperationPollution(id: number): Observable<Pollution> 
   {
-    return this.http.get<Pollution>(`${this.apiUrl}/${id}`);
+    //return this.http.get<Pollution>(`${this.apiUrl}/api/pollution/${id}`);
+    return this.http.get<Pollution>(this.apiUrl + "/api/pollution/" + {id});
   }
 
   // Ajouter une nouvelle pollution 

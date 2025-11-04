@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, input, OnChanges, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ServicePollution, Pollution } from '../services/pollution';
-import { RecapitulatifFormulairePollution } from '../recapitulatif-formulaire-pollution/recapitulatif-formulaire-pollution';
 import { SimpleChanges } from '@angular/core';
 
 
@@ -39,14 +38,14 @@ export class FormulairePollution {
     if (pollutionChange && pollutionChange.currentValue) {
       const p: Pollution = pollutionChange.currentValue;
       this.formulaireGroup.patchValue({
-        titrePollution: p.titrePollution,
-        typePollution: p.typePollution,
-        descriptionPollution: p.descriptionPollution,
-        datePollution: p.datePollution,
-        lieuPollution: p.lieuPollution,
-        latitudePollution: p.latitudePollution,
-        longitudePollution: p.longitudePollution,
-        photoPollution: p.photo || ''
+        titre: p.titre,
+        type_pollution: p.type_pollution,
+        description: p.description,
+        date_observation: p.date_observation,
+        lieu: p.lieu,
+        latitude: p.latitude,
+        longitude: p.longitude,
+        photo_urlPollution: p.photo_url || ''
       });
     }
   }
@@ -69,14 +68,14 @@ export class FormulairePollution {
   ) {
     // Création du formulaire pour les pollution via FormBuilder
     this.formulaireGroup = this.fb.group({
-      titrePollution: ['', Validators.required],
-      typePollution: [null, Validators.required],
-      descriptionPollution: ['', Validators.required],
-      datePollution: [null, Validators.required],
-      lieuPollution: ['', Validators.required],
-      latitudePollution: [null, Validators.required],
-      longitudePollution: [null, Validators.required],
-      photoPollution: ['']
+      titre: ['', Validators.required],
+      type_pollution: [null, Validators.required],
+      description: ['', Validators.required],
+      date_observation: [null, Validators.required],
+      lieu: ['', Validators.required],
+      latitude: [null, Validators.required],
+      longitude: [null, Validators.required],
+      photo_urlPollution: ['']
     });
   }
 
@@ -89,14 +88,14 @@ onSubmit(): void {
 
   const pollutionForm: Pollution = {
     ...this.pollution, // si on modifie, garde l'id
-    titrePollution: this.formulaireGroup.value.titrePollution!,
-    typePollution: this.formulaireGroup.value.typePollution!,
-    descriptionPollution: this.formulaireGroup.value.descriptionPollution!,
-    datePollution: this.formulaireGroup.value.datePollution!,
-    lieuPollution: this.formulaireGroup.value.lieuPollution!,
-    latitudePollution: this.formulaireGroup.value.latitudePollution!,
-    longitudePollution: this.formulaireGroup.value.longitudePollution!,
-    photo: this.formulaireGroup.value.photoPollution || ''
+    titre: this.formulaireGroup.value.titre!,
+    type_pollution: this.formulaireGroup.value.type_pollution!,
+    description: this.formulaireGroup.value.description!,
+    date_observation: this.formulaireGroup.value.date_observation!,
+    lieu: this.formulaireGroup.value.lieu!,
+    latitude: this.formulaireGroup.value.latitude!,
+    longitude: this.formulaireGroup.value.longitude!,
+    photo_url: this.formulaireGroup.value.photo_urlPollution || ''
   };
 
   if (this.pollution?.id) {
