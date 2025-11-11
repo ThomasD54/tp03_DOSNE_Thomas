@@ -4,9 +4,9 @@ import { FormulaireUtilisateur } from './formulaire-utilisateur/formulaire-utili
 import { ListeUtilisateur } from './liste-utilisateur/liste-utilisateur';
 
 export const routes: Routes = [
-  { path: 'formulaire', component: FormulairePollution },
-  { path: 'formulaire-pollution', component: FormulairePollution },
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  { path: 'accueil', component: FormulairePollution }, // liste pollution ou page principale
   { path: 'formulaire-utilisateur', component: FormulaireUtilisateur },
   { path: 'liste-utilisateur', component: ListeUtilisateur },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'accueil' }
 ];

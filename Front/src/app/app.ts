@@ -28,7 +28,7 @@ export class App {
   }
 
   allerAccueil() {
-    this.router.navigate(['/']);
+  this.router.navigate(['/accueil']);
   }
 
   creationUser() {
@@ -37,21 +37,20 @@ export class App {
 
   listeUser() {
   this.router.navigate(['/liste-utilisateur']);
-  }
+}
 
   nouvellePollution() {
-    this.pollutionEnCours = undefined; // formulaire vide
-    this.afficherFormulaire = true;
+    this.pollutionEnCours = undefined;
+    this.router.navigate(['/accueil']);
   }
 
   modifierPollution(p: Pollution) {
-    this.pollutionEnCours = { ...p }; // copie pour ne pas modifier directement
-    this.afficherFormulaire = true;
+    this.pollutionEnCours = { ...p };
+    this.router.navigate(['/accueil']);
   }
 
   gestionPollutionAjoutee() {
     this.chargerPollutions();
-    this.afficherFormulaire = false;
   }
 
   chargerPollutions() {
