@@ -17,9 +17,15 @@ export class ServiceUtilisateur {
 
   constructor(private http: HttpClient) {}
 
-  // Récupérer tous les utilisateurs
-  recuperationTousUtilisateurs(): Observable<Utilisateur[]> 
-  {
-    return this.http.get<Utilisateur[]>(this.apiUrl + "/api/utilisateurs");
-  }
+    // Récupérer tous les utilisateurs
+    recuperationTousUtilisateurs(): Observable<Utilisateur[]> 
+    {
+        return this.http.get<Utilisateur[]>(this.apiUrl + "/api/utilisateurs");
+    }
+
+    // Ajouter un nouvel utilisateur
+    ajouterUtilisateur(utilisateur: Utilisateur): Observable<Utilisateur> 
+    {
+        return this.http.post<Utilisateur>(this.apiUrl + "/api/utilisateurs", utilisateur);
+    }
 }
