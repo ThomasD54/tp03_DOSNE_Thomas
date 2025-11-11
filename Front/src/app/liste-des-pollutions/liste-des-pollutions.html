@@ -1,9 +1,6 @@
 <main class="main-container">
   <h2>Liste des pollutions enregistrées</h2>
 
-  <!-- Bouton pour ajouter une nouvelle pollution -->
-  <button class="btn btn-add" (click)="ajouterPollution()">Ajouter une nouvelle pollution</button>
-
   <div *ngIf="pollutions.length === 0" class="message-vide">
     Il n'y a aucune pollution enregistrée pour le moment 🌱
     <br>
