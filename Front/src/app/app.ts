@@ -21,14 +21,14 @@ export class App {
   afficherPopup = false;
 
   //constructor(private pollutionService: ServicePollution) {}
-  constructor(private pollutionService: ServicePollution, private router: Router) {}
+  constructor(private pollutionService: ServicePollution, public router: Router) {}
 
   ngOnInit(): void {
     this.chargerPollutions();
   }
 
   allerAccueil() {
-    this.afficherFormulaire = false;
+    this.router.navigate(['/']);
   }
 
   creationUser() {
