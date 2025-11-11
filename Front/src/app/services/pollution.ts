@@ -22,7 +22,7 @@ export interface Pollution
 })
 export class ServicePollution 
 {
-  // URL du backend mocké (simuler)
+  
   private apiUrl = 'https://apitemplate-latest-uhyg.onrender.com';
 
   constructor(private http: HttpClient) {}

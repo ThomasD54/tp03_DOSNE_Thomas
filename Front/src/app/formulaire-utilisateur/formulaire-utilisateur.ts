@@ -10,9 +10,10 @@ import { ServiceUtilisateur, Utilisateur } from '../services/utilisateur';
   templateUrl: './formulaire-utilisateur.html',
   styleUrls: ['./formulaire-utilisateur.css']
 })
+
 export class FormulaireUtilisateur {
 
-  @Output() utilisateurCree = new EventEmitter<void>(); // événement envoyé quand un user est créé
+  @Output() utilisateurCree = new EventEmitter<void>();
 
   formulaireGroup: FormGroup;
 
@@ -44,7 +45,7 @@ export class FormulaireUtilisateur {
     this.serviceUtilisateur.ajouterUtilisateur(utilisateurForm).subscribe({
       next: (result) => {
         console.log('Utilisateur ajouté :', result);
-        this.utilisateurCree.emit(); // informer le parent si besoin
+        this.utilisateurCree.emit();
         this.formulaireGroup.reset();
       },
       error: (err) => console.error('Erreur ajout utilisateur :', err)
