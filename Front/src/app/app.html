@@ -43,13 +43,6 @@
     </div>
   </div>
 
-  <!-- Formulaire -->
-  <div *ngIf="afficherFormulaire">
-    <app-formulaire-pollution 
-      [pollution]="pollutionEnCours"
-      (pollutionAjoutee)="gestionPollutionAjoutee()">
-    </app-formulaire-pollution>
-  </div>
 </main>
 
 <!-- Popup de consultation -->
