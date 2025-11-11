@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Pollution, ServicePollution } from './services/pollution';
 import { FormulairePollution } from './formulaire-pollution/formulaire-pollution';
+import { FormulaireUtilisateur } from './formulaire-utilisateur/formulaire-utilisateur';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +19,8 @@ export class App {
   pollutionEnConsultation?: Pollution;
   afficherPopup = false;
 
-  constructor(private pollutionService: ServicePollution) {}
+  //constructor(private pollutionService: ServicePollution) {}
+  constructor(private pollutionService: ServicePollution, private router: Router) {}
 
   ngOnInit(): void {
     this.chargerPollutions();
@@ -64,8 +67,16 @@ export class App {
     });
   }
 
-  fermerPopup() {
+  fermerPopupPollution() {
     this.afficherPopup = false;
     this.pollutionEnConsultation = undefined;
+  }
+
+  creationUser() {
+  this.router.navigate(['/formulaire-utilisateur']);
+  }
+
+  listeUser() {
+  this.router.navigate(['/liste-utilisateurs']);
   }
 }

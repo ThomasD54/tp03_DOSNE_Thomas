@@ -2,6 +2,8 @@
   <h1>Gestionnaire des Pollutions</h1>
   <div class="nav-buttons">
     <button class="btn btn-home" (click)="allerAccueil()">Accueil</button>
+    <button class="btn btn-home" (click)="creationUser()">Créer un compte</button>
+    <button class="btn btn-home" (click)="listeUser()">Liste des utilisateurs</button>
     <button class="btn btn-add" (click)="nouvellePollution()">Ajouter une nouvelle pollution</button>
   </div>
 </header>
@@ -66,7 +68,7 @@
     </div>
 
     <div class="popup-actions">
-      <button class="btn btn-close" (click)="fermerPopup()">Fermer</button>
+      <button class="btn btn-close" (click)="fermerPopupPollution()">Fermer</button>
     </div>
 
     <br>
