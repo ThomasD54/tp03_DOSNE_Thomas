@@ -5,7 +5,7 @@ import { ListeUtilisateur } from './liste-utilisateur/liste-utilisateur';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
-  { path: 'accueil', component: FormulairePollution }, // liste pollution ou page principale
+  { path: 'accueil', component: FormulairePollution },
   { path: 'formulaire-utilisateur', component: FormulaireUtilisateur },
   { path: 'liste-utilisateur', component: ListeUtilisateur },
   { path: '**', redirectTo: 'accueil' }

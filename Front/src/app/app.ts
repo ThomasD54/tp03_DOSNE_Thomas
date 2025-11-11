@@ -41,12 +41,12 @@ export class App {
 
   nouvellePollution() {
     this.pollutionEnCours = undefined;
-    this.router.navigate(['/accueil']);
+    this.router.navigate(['/formulaire-pollution']);
   }
 
   modifierPollution(p: Pollution) {
     this.pollutionEnCours = { ...p };
-    this.router.navigate(['/accueil']);
+    this.router.navigate(['/formulaire-pollution']);
   }
 
   gestionPollutionAjoutee() {
