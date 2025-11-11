@@ -30,6 +30,14 @@ export class App {
     this.afficherFormulaire = false;
   }
 
+  creationUser() {
+  this.router.navigate(['/formulaire-utilisateur']);
+  }
+
+  listeUser() {
+  this.router.navigate(['/liste-utilisateur']);
+  }
+
   nouvellePollution() {
     this.pollutionEnCours = undefined; // formulaire vide
     this.afficherFormulaire = true;
@@ -72,11 +80,4 @@ export class App {
     this.pollutionEnConsultation = undefined;
   }
 
-  creationUser() {
-  this.router.navigate(['/formulaire-utilisateur']);
-  }
-
-  listeUser() {
-  this.router.navigate(['/liste-utilisateurs']);
-  }
 }
