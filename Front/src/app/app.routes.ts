@@ -10,5 +10,6 @@ export const routes: Routes = [
   { path: 'pollution/ajouter', component: FormulairePollution },
   { path: 'formulaire-utilisateur', component: FormulaireUtilisateur },
   { path: 'liste-utilisateur', component: ListeUtilisateur },
+  { path: 'pollution/modifier/:id', component: FormulairePollution },
   { path: '**', redirectTo: 'accueil' }
 ];
