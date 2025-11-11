@@ -112,7 +112,6 @@ onSubmit(): void {
     this.pollutionService.ajouterPollution(pollutionForm).subscribe({
       next: (result) => {
         this.pollutionCreee = result;
-        this.recapitulatif.emit(result);
         this.pollutionAjoutee.emit();
         this.formulaireGroup.reset();
       },
