@@ -36,29 +36,24 @@ export class ServicePollution
   // Recuperation d'une pollution specifique
   recuperationPollution(id: number): Observable<Pollution> 
   {
-    //return this.http.get<Pollution>(`${this.apiUrl}/api/pollution/${id}`);
-    return this.http.get<Pollution>(this.apiUrl + "/api/pollution/" + {id});
+    return this.http.get<Pollution>(`${this.apiUrl}/api/pollution/${id}`);
   }
 
   // Ajouter une nouvelle pollution 
   ajouterPollution(p: Pollution): Observable<Pollution> 
   {
-    return this.http.post<Pollution>(this.apiUrl, p);
+    return this.http.post<Pollution>(`${this.apiUrl}/api/pollution`, p);
   }
 
   // Met à jour une pollution
   majPollution(id: number, p:Pollution): Observable<Pollution> 
   {
-    return this.http.put<Pollution>(`${this.apiUrl}/${id}`, p);
+    return this.http.put<Pollution>(`${this.apiUrl}/api/pollution/${id}`, p);
   }
 
   // Suppression d'une pollution
   suppressionPollution(id: number): Observable<void> 
   {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/api/pollution/${id}`);
   }
-
-
-
-  
 }

@@ -9,6 +9,7 @@
 
 <form [formGroup]="formulaireGroup" (ngSubmit)="onSubmit()" class="cssFormulaire">
     
+    
     <div class="bloc-du-formulaire">
         <label>Titre de votre déclaration</label>
         <input type="text" formControlName="titre" [class.is-invalid]="formulaireGroup.get('titre')?.invalid">
@@ -92,9 +93,7 @@
       </div>
   </div>
 
-    
 
-  
     <button type="submit" [disabled]="formulaireGroup.invalid">Valider</button>
 
 </form>
