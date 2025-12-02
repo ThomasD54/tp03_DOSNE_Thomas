@@ -1,14 +1,14 @@
 {
   "name": "tp02-angular",
   "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "start:api": "json-server --watch ../api/db.json --port 3000"
-  },
+"scripts": {
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build --configuration production",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "start:api": "json-server --watch ../api/db.json --port 3000"
+},
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
