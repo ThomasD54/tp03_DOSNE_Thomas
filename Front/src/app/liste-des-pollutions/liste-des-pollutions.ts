@@ -10,7 +10,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule]
 })
-export class ListePollutionComponent implements OnInit {
+  
+export class ListeDesPollutions implements OnInit {
   pollutions: Pollution[] = [];
   pollutionEnConsultation?: Pollution;
   afficherPopup = false;
