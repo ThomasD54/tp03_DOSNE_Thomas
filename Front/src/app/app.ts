@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Pollution, ServicePollution } from './services/pollution';
-import { FormulairePollution } from './formulaire-pollution/formulaire-pollution';
-import { FormulaireUtilisateur } from './formulaire-utilisateur/formulaire-utilisateur';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
@@ -9,7 +7,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormulairePollution, RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
