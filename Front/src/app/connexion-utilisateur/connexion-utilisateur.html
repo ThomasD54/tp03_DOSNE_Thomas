@@ -1,12 +1,34 @@
-<h2>Connexion utilisateur</h2>
-<form [formGroup]="formulaireGroup" (ngSubmit)="onSubmit()">
-  <div>
-    <label>Login :</label>
-    <input type="text" formControlName="login">
-  </div>
-  <div>
-    <label>Mot de passe :</label>
-    <input type="password" formControlName="pass">
-  </div>
-  <button type="submit" class="btn btn-add">Se connecter</button>
+<div>
+    <div class="bloc-de-marge"></div>
+    <h2 class="titre-formulaire">Connexion utilisateur</h2>
+</div>
+
+<form [formGroup]="formulaireGroup" (ngSubmit)="onSubmit()" class="cssFormulaire">
+
+    <div class="bloc-du-formulaire">
+        <label>Login :</label>
+        <input type="text" formControlName="login" 
+               [class.is-invalid]="formulaireGroup.get('login')?.invalid">
+
+        <small class="text-champ-invalide" *ngIf="formulaireGroup.get('login')?.invalid">
+            <ng-container *ngIf="formulaireGroup.get('login')?.hasError('required')">
+                <p>Le login est obligatoire</p>
+            </ng-container>
+        </small>
+    </div>
+
+    <div class="bloc-du-formulaire">
+        <label>Mot de passe :</label>
+        <input type="password" formControlName="pass" 
+               [class.is-invalid]="formulaireGroup.get('pass')?.invalid">
+
+        <small class="text-champ-invalide" *ngIf="formulaireGroup.get('pass')?.invalid">
+            <ng-container *ngIf="formulaireGroup.get('pass')?.hasError('required')">
+                <p>Le mot de passe est obligatoire</p>
+            </ng-container>
+        </small>
+    </div>
+
+    <button type="submit" [disabled]="formulaireGroup.invalid">Se connecter</button>
+
 </form>

@@ -1,82 +1,91 @@
-/* --- TITRE --- */
-h2 {
-	color: #2c7be5;
-	font-size: 28px;
-	font-weight: bold;
-	text-align: center;
-	margin-bottom: 30px;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	font-family: sans-serif;
+.bloc-de-marge{
+    min-height: 20px;
 }
 
-/* --- FORMULAIRE --- */
-form {
-	display: flex;
-	flex-direction: column;
-	max-width: 400px;
-	margin: 0 auto;
-	padding: 20px 30px;
-	background: #e3f0fa;   /* fond bleu très clair pour la connexion */
-	border-radius: 12px;
-	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-	font-family: sans-serif;
+/* Titre */
+.titre-formulaire {
+    color: #2c7be5;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: sans-serif;
 }
 
-/* --- GROUPES DE CHAMPS --- */
-.form-group {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 15px;
+/* Container du formulaire */
+.cssFormulaire {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    background: #cfebda;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
 }
 
-/* --- LABELS --- */
-form label {
-	font-weight: 600;
-	margin-bottom: 5px;
-	color: #333;
+/* Labels */
+.cssFormulaire label {
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #333;
 }
 
-/* --- CHAMPS INPUT --- */
-form input {
-	width: 100%;
-	padding: 10px 12px;
-	border: 1px solid #ccc;
-	border-radius: 6px;
-	font-size: 15px;
-	transition: all 0.2s ease-in-out;
-	background-color: #fff;
-	box-sizing: border-box;
+/* Inputs */
+.cssFormulaire input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
 }
 
-/* --- FOCUS --- */
-form input:focus {
-	border-color: #2c7be5;
-	outline: none;
-	box-shadow: 0 0 4px rgba(44, 123, 229, 0.4);
+/* Focus */
+.cssFormulaire input:focus {
+    border-color: #2c7be5;
+    outline: none;
+    box-shadow: 0 0 4px rgba(44, 123, 229, 0.4);
 }
 
-/* --- CHAMPS INVALIDES --- */
-.error, .is-invalid {
-	color: #e74c3c;
-	font-size: 13px;
-	margin-top: 5px;
+/* Champ invalide */
+.is-invalid {
+    border-color: #e74c3c !important;
+    background-color: #f5fff7;
 }
 
-/* --- BOUTON --- */
-form button {
-	margin-top: 20px;
-	padding: 12px;
-	background-color: #2c7be5;
-	color: white;
-	font-size: 16px;
-	font-weight: bold;
-	border: none;
-	border-radius: 6px;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
+/* Bloc de champ */
+.bloc-du-formulaire {
+    min-height: 100px;
 }
 
-form button:hover {
-	background-color: #7dd885;
+/* Message d’erreur */
+.text-champ-invalide {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: -5px;
+    display: block;
+}
+
+/* Bouton */
+.cssFormulaire button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #2c7be5;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cssFormulaire button:hover {
+    background-color: #7dd885;
 }
