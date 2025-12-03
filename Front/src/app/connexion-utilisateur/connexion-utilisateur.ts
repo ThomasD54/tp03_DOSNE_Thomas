@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { CommonModule } from '@angular/common';
-import { AuthConnexion } from '../../shared/actions/auth-actions';
 
 @Component({
   selector: 'app-connexion-utilisateur',
