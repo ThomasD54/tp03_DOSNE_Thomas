@@ -9,6 +9,7 @@ import { AuthConnexion } from '../../shared/actions/auth-action';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './connexion-utilisateur.html'
+  styleUrls: ['./connexion-utilisateur.css']
 })
 export class ConnexionUtilisateur {
   formulaireGroup: FormGroup;
