@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormulairePollution, RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
