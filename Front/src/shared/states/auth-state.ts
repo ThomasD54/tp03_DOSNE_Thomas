@@ -1,6 +1,6 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { Injectable } from '@angular/core';
-import { Auth } from '../models/auth';
+import { AuthStateModel } from '../models/auth-state-model';
 import { AuthConnexion } from '../actions/auth-action';
 
 export interface AuthStateModel {
