@@ -33,4 +33,12 @@ export class ServiceUtilisateur {
   recuperationUtilisateur(id: number): Observable<Utilisateur> {
     return this.http.get<Utilisateur>(`${this.apiUrl}/api/utilisateurs/${id}`);
   }
+
+  // Vérifier la connexion utilisateur
+  verifierConnexion(login: string, pass: string): Observable<Utilisateur | null> {
+    return this.http.post<Utilisateur | null>(`${this.apiUrl}/api/utilisateurs/login`, {
+      login,
+      pass
+    });
+  }
 }

@@ -1,26 +1,35 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { Injectable } from '@angular/core';
-import { AuthConnexion } from '../actions/auth-action';
+import { AuthConnexion, AuthDeconnexion } from '../actions/auth-action';
 
 export interface AuthStateModel {
-  connexion: boolean;
+  utilisateur: any | null;
 }
 
 @State<AuthStateModel>({
   name: 'auth',
   defaults: {
-    connexion: false
+    utilisateur: null
   }
 })
-@Injectable()
 export class AuthState {
+
   @Selector()
-  static isConnected(state: AuthStateModel) {
-    return state.connexion;
+  static utilisateur(state: AuthStateModel) {
+    return state.utilisateur;
+  }
+
+  @Selector()
+  static estConnecte(state: AuthStateModel) {
+    return state.utilisateur !== null;
   }
 
   @Action(AuthConnexion)
   connexion(ctx: StateContext<AuthStateModel>, action: AuthConnexion) {
-    ctx.patchState({ connexion: action.payload.connexion });
+    ctx.patchState({ utilisateur: action.payload.utilisateur });
+  }
+
+  @Action(AuthDeconnexion)
+  deconnexion(ctx: StateContext<AuthStateModel>) {
+    ctx.patchState({ utilisateur: null });
   }
 }
