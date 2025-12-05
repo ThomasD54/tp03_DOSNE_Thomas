@@ -5,6 +5,9 @@ import { FormulaireUtilisateur } from './formulaire-utilisateur/formulaire-utili
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { Select } from '@ngxs/store';
+import { AuthState } from '../../shared/states/auth-state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +23,6 @@ export class App {
   pollutionEnConsultation?: Pollution;
   afficherPopup = false;
 
-  //constructor(private pollutionService: ServicePollution) {}
   constructor(private pollutionService: ServicePollution, public router: Router) {}
 
   ngOnInit(): void {
@@ -70,7 +72,6 @@ export class App {
   consulterPollution(id: number) {
     this.pollutionService.recuperationPollution(id).subscribe((p) => {
       this.pollutionEnConsultation = p;
-      // afficher le pop up pour la visualisation de la pollution
       this.afficherPopup = true;
     });
   }
@@ -80,4 +81,5 @@ export class App {
     this.pollutionEnConsultation = undefined;
   }
 
+  @Select(AuthState.utilisateur) utilisateur$!: Observable<Utilisateur | null>;
 }

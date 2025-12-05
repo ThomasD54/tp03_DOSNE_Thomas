@@ -2,7 +2,7 @@ import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { AuthConnexion, AuthDeconnexion } from '../actions/auth-action';
 
 export interface AuthStateModel {
-  utilisateur: any | null;
+  utilisateur: Utilisateur | null;
 }
 
 @State<AuthStateModel>({
@@ -11,16 +11,12 @@ export interface AuthStateModel {
     utilisateur: null
   }
 })
+@Injectable()
 export class AuthState {
 
   @Selector()
   static utilisateur(state: AuthStateModel) {
     return state.utilisateur;
-  }
-
-  @Selector()
-  static estConnecte(state: AuthStateModel) {
-    return state.utilisateur !== null;
   }
 
   @Action(AuthConnexion)

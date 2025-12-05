@@ -11,3 +11,7 @@
 
 <!-- Le contenu de la page sera injecté ici via le router -->
 <router-outlet></router-outlet>
+
+<div *ngIf="utilisateur$ | async as user">
+  Connecté en tant que : {{ user.nom }} {{ user.prenom }}
+</div>
