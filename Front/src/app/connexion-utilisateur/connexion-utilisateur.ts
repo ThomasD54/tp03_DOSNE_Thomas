@@ -27,13 +27,17 @@ export class ConnexionUtilisateur {
   }
 
   onSubmit(): void {
+    console.log('Form submitted');
     if (this.formulaireGroup.invalid) return;
 
     const { login, pass } = this.formulaireGroup.value;
+    console.log('Login:', login, 'Pass:', pass);
 
     this.serviceUtilisateur.verifierConnexion(login, pass).subscribe(utilisateur => {
+      console.log('Réponse API:', utilisateur);
       if (utilisateur) {
         this.store.dispatch(new AuthConnexion({ utilisateur }));
+        this.erreurConnexion = false;
       } else {
         this.erreurConnexion = true;
       }
