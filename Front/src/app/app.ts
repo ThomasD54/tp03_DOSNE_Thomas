@@ -6,8 +6,9 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { Select } from '@ngxs/store';
-import { AuthState } from '../../shared/states/auth-state';
 import { Observable } from 'rxjs';
+import { AuthState } from '../shared/states/auth-state';
+import { Utilisateur } from './services/utilisateur';
 
 @Component({
   selector: 'app-root',
